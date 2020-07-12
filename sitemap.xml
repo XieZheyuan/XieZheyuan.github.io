@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://xiezheyuan.top/tags/index.html</loc>
+    
+    <lastmod>2020-07-12T13:21:12.410Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://xiezheyuan.top/2020/04/03/github-guide/</loc>
     
     <lastmod>2020-07-12T13:13:25.853Z</lastmod>
@@ -82,13 +89,6 @@
     <loc>http://xiezheyuan.top/2019/10/06/python-ybc-module-ybcspeech/</loc>
     
     <lastmod>2020-07-02T03:09:18.014Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://xiezheyuan.top/tags/index.html</loc>
-    
-    <lastmod>2020-06-27T05:46:43.442Z</lastmod>
     
   </url>
   
