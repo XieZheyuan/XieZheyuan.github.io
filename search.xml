@@ -35,6 +35,8 @@
     <title>python 制作CPU压力测试——圆周率计算</title>
     <url>/2020/04/01/python-countpi/</url>
     <content><![CDATA[<p>众所周知，反正弦函数asin有以下公式（如在计算器中是弧度制下）：</p>
+<a id="more"></a>
+
 <p><img src="https://private.codecogs.com/gif.latex?%5Cfrac%7B%5Cpi%7D%7B2%7D%3Darcsin%5Cleft%20%28%201%20%5Cright%20%29" alt="asin(1)=pi/2"></p>
 <p>百度百科搜索三角函数公式，在泰勒展开式一节中有以下公式：<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9ia2ltZy5jZG4uYmNlYm9zLmNvbS9waWMvYjk5OWE5MDE0YzA4NmUwNmNhZDMzMzFmMGQwODdiZjQwYWQxY2I2Zg?x-oss-process=image/format,png" alt="其中arcsin写错了，(2k+1)!!应该是(2k-1)!!
 另外x!!指双阶乘，不同于阶乘"></p>
@@ -66,7 +68,8 @@
   <entry>
     <title>python简易数据分析</title>
     <url>/2020/07/04/python-simple-data-analysis/</url>
-    <content><![CDATA[<h1 id="python简易数据分析"><a href="#python简易数据分析" class="headerlink" title="python简易数据分析"></a>python简易数据分析</h1><h2 id="1、平均数-Average"><a href="#1、平均数-Average" class="headerlink" title="1、平均数(Average)"></a>1、平均数(Average)</h2><p>话不多说，直接上代码</p>
+    <content><![CDATA[<h1 id="python简易数据分析"><a href="#python简易数据分析" class="headerlink" title="python简易数据分析"></a>python简易数据分析</h1><h2 id="1、平均数-Average"><a href="#1、平均数-Average" class="headerlink" title="1、平均数(Average)"></a>1、平均数(Average)</h2><a id="more"></a>
+<p>话不多说，直接上代码</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">average</span><span class="params">(data)</span>:</span></span><br><span class="line">    sum_ = sum(data) <span class="comment"># 调用内置求和函数</span></span><br><span class="line">    a_val = sum_ / len(data)</span><br><span class="line">    <span class="keyword">return</span> a_val</span><br></pre></td></tr></table></figure>
 
 <h2 id="2、方差-Variance"><a href="#2、方差-Variance" class="headerlink" title="2、方差(Variance)"></a>2、方差(Variance)</h2><h3 id="何谓方差"><a href="#何谓方差" class="headerlink" title="何谓方差?"></a>何谓方差?</h3><blockquote>
@@ -142,8 +145,9 @@
   </entry>
   <entry>
     <title>Python经验帖——pyinstaller</title>
-    <url>/2020/06/19/pythonexp-pyinstaller/</url>
+    <url>/2020/07/12/pythonexp-pyinstaller/</url>
     <content><![CDATA[<h1 id="PyInstaller介绍"><a href="#PyInstaller介绍" class="headerlink" title="PyInstaller介绍"></a>PyInstaller介绍</h1><p>PyInstaller是一个简单的python编译程序，可以把<strong>py</strong> 源文件编译成 <strong>exe</strong> 可执行文件（据说还可以变成.app等，但没有亲测过）</p>
+<a id="more"></a>
 <h1 id="PyInstaller安装"><a href="#PyInstaller安装" class="headerlink" title="PyInstaller安装"></a>PyInstaller安装</h1><p>直接运行pip命令即可</p>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">python <span class="literal">-m</span> pip install pyinstaller //Windows/MS<span class="literal">-DOS</span></span><br><span class="line">pip install pyinstaller //Liunx/Unix</span><br><span class="line">pip3 install pyinstaller //Mac</span><br></pre></td></tr></table></figure>
 
@@ -168,7 +172,8 @@
   <entry>
     <title>超完整Github开发指南</title>
     <url>/2020/04/03/github-guide/</url>
-    <content><![CDATA[<h1 id="0、目录"><a href="#0、目录" class="headerlink" title="0、目录"></a>0、目录</h1><p><a href="#first">1、注册GitHub 账户</a><br><a href="#second">2、创建第一个仓库 </a><br><a href="#third">3、上传至仓库</a><br><a name="#fourth">4、使用Github Pages创造自己的网站</a></p>
+    <content><![CDATA[<h1 id="0、目录"><a href="#0、目录" class="headerlink" title="0、目录"></a>0、目录</h1><a id="more"></a>
+<p><a href="#first">1、注册GitHub 账户</a><br><a href="#second">2、创建第一个仓库 </a><br><a href="#third">3、上传至仓库</a><br><a name="#fourth">4、使用Github Pages创造自己的网站</a></p>
 <h1 id="1、注册GitHub-账户"><a href="#1、注册GitHub-账户" class="headerlink" title="1、注册GitHub 账户"></a>1、注册GitHub 账户</h1><p>访问<a href="http://www.github.com/" target="_blank" rel="noopener">Github</a>,若无意外，则效果为以下所示（Firefox)</p>
 <p><img src="/blogimages/github-mainpage.png" alt="Github首页"></p>
 <p>输入<strong>用户名</strong>、<strong>邮箱（确保可用）</strong>、<strong>密码</strong>，点击Sign up for Github，再填写几个个人信息，就Well Done了！</p>
