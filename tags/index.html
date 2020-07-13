@@ -339,7 +339,7 @@
     
 
     
-    <div class="declare"> 
+    <div class="declare">
       <ul class="post-copyright">
         <li>
           <strong>本文作者：</strong>
@@ -467,32 +467,43 @@
 
 
 
-  
-  <div id="gitment-ctn"></div>
-  
-    <!-- 中文 -->
-
-    <link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
-    <script src="https://billts.site/js/gitment.js"></script>
-
-  <script>
-    <!-- id: "Tags" -->
-    var gitment = new Gitment({
-      id: "20200712212112",
-      owner: 'xiezheyuan',
-      repo: 'Blog',
-      oauth: {
-        client_id: '99436862ecb8ecf31166',
-        client_secret: 'ea6b294b7b8b275dfd2b5061729b68fb315d0a78',
-      },
-    })
-    gitment.render('gitment-ctn')
-  </script>
-
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
   
 
 
+
+  
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'false' == true ? true : false;
+    var verify = 'true' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "VScDF0rbmq1kDQa9HeBoEDos-gzGzoHsz",
+        app_key: "Kos79oTJuFAqp4xuYgq2T3VO",
+        placeholder: "Just go go",
+        avatar:"monsterid",
+    });
+</script>
+
+
+    </section>
+  
+
+
+<!--————————————————-->
+<!--版权声明：本文为CSDN博主「皓月雨欣❤」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。-->
+<!--原文链接：https://blog.csdn.net/weixin_44330881/java/article/details/102819061-->
 
           </div>
         </div>
