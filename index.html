@@ -222,6 +222,7 @@
           <div id="js-content" class="content-ll">
             
 
+
   
     <article id="post-pythonexp-pyinstaller" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1002,6 +1003,43 @@
   
   
 
+{% if theme.valine.enable and theme.valine.appid and theme.valine.appkey %}
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unjkp.com/valine/dist/Valine.min.js"></script>  //删除Valine核心代码库外链调用
+<script src="/js/src/Valine.min.js"></script>  //调用刚下载的本地文件以加速加载速度
+
+{% set valine_uri = '/js/src/Valine.min.js' %}  //这里改为从本地加载
+{% if theme.vendors.valine %}
+{% set valine_uri = theme.vendors.valine %}
+{% endif %}
+<script src="{{ valine_uri }}"></script>
+
+<script type="text/javascript">
+  var GUEST = ['nick','mail','link'];
+  var guest = '{{ theme.valine.guest_info }}';
+  guest = guest.split(',').filter(function (item) {
+    return GUEST.indexOf(item)>-1;
+  });
+  new Valine({
+    el: '#comments' ,
+    verify: {{ theme.valine.verify }},
+  notify: {{ theme.valine.notify }},
+  appId: '{{ theme.valine.appid }}',
+          appKey: '{{ theme.valine.appkey }}',
+          placeholder: '{{ theme.valine.placeholder }}',
+          avatar:'{{ theme.valine.avatar }}',
+          guest_info:['nick'] ,  //评论者只需要提供评论的昵称即可
+          pageSize:'{{ theme.valine.pageSize }}' || 10,
+  });
+  //增加以下六行代码去除 power by valine
+  var infoEle = document.querySelector('#comments .info');
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+    infoEle.childNodes.forEach(function(item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+{% endif %}
 
           </div>
         </div>
@@ -1263,7 +1301,7 @@
     	<section class="tools-section tools-section-me" q-show="aboutme">
         
           
-  	  		<div class="aboutme-wrap" id="aboutme">主要涉及技术：<br>Java后端开发、聚合支付、<br>公众号开发、开源爱好者、Linux<br><br>联系QQ:2434387555<br><br>很惭愧<br><br>只做了一点微小的工作<br>谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="aboutme">Hello I'm Xie Zheyuan</div>
   	  	
     	</section>
     
