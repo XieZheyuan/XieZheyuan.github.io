@@ -18,7 +18,7 @@
 <meta property="og:description" content="猿编程模块 ybc_speech">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-10-05T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-07-02T03:09:18.014Z">
+<meta property="article:modified_time" content="2020-07-18T13:58:21.190Z">
 <meta property="article:author" content="Xie Zheyuan">
 <meta property="article:tag" content="计算机">
 <meta property="article:tag" content="python">
@@ -28,7 +28,7 @@
     <link rel="alternative" href="/atom.xml" title="Xie Zheyuan&#39;s Blog" type="application/atom+xml">
   
   
-    <link rel="icon" href="https://hexo.io/icon/favicon-32x32.png">
+    <link rel="icon" href="/blogimages/favicon.png">
   
   
   <link rel="stylesheet" type="text/css" href="/./main.a5fda8.css">
@@ -118,7 +118,11 @@
 				
 					<a class="weixin" href="javascript:alert('我的微信号：billy20090328')" title="微信" target="_blank"><i class="icon-weixin"></i></a>
 				
+					<a class="weibo" href="https://weibo.com/u/6813211607" title="微博" target="_blank"><i class="icon-weibo"></i></a>
+				
 					<a class="mail" href="mailto:billy03282@163.com" title="NULL" target="_blank"><i class="icon-mail"></i></a>
+				
+					<a class="StackOverflow" href="https://stackoverflow.com/users/13276303/xie-zheyuan" title="subNav.title.StackOverflow" target="_blank"><i class="icon-StackOverflow"></i></a>
 				
 			</div>
 		
@@ -127,11 +131,11 @@
 			
 			
 			<div>
-				<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="240" height="86" src="//music.163.com/outchain/player?type=2&id=5036727&auto=1&height=66"></iframe>
+				<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="240" height="86" src="//music.163.com/outchain/player?type=2&id=34341358&auto=1&height=66"></iframe>
 			</div>
 			
 				
-				<p style="font-size: 12px;">这似乎是首纯音乐，请尽情的欣赏它吧！<p>
+				<p style="font-size: 12px;">这似乎是一首钢琴曲，尽情陶醉在美妙的琴声中吧！<p>
 			
 		
 		</nav>
@@ -195,7 +199,11 @@
 			        
 						<a class="weixin" target="_blank" href="javascript:alert('我的微信号：billy20090328')" title="微信"><i class="icon-weixin"></i></a>
 			        
+						<a class="weibo" target="_blank" href="https://weibo.com/u/6813211607" title="微博"><i class="icon-weibo"></i></a>
+			        
 						<a class="mail" target="_blank" href="mailto:billy03282@163.com" title="NULL"><i class="icon-mail"></i></a>
+			        
+						<a class="StackOverflow" target="_blank" href="https://stackoverflow.com/users/13276303/xie-zheyuan" title="subNav.title.StackOverflow"><i class="icon-StackOverflow"></i></a>
 			        
 				</div>
 			</nav>
@@ -283,6 +291,7 @@
     
     <p>首先先安装模块</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Python36\python.exe -m pip install ybc-speech</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <p><strong>record</strong>:录制音频</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">record</span><span class="params">(filename, seconds=__SECONDS, to_dir=__TO_DIR, rate=__RATE, channels=__CHANNELS, chunk=__CHANNELS)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    功能：录制音频文件。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    参数 filename 是录制生成的语音文件的名字，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    可选参数 seconds 是录制时长（单位：秒），默认 5 秒，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    可选参数 to_dir 是存放语音文件的目录，默认为当前目录，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    可选参数 rate 是录制采样率，1 代表 16000，0 代表 8000，默认为 1，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    可选参数 channels 是声道，默认 1，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    可选参数 chunk 是一次读取的字节数，默认 1024，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    返回：录制的音频文件的路径。</span></span><br><span class="line"><span class="string">    """</span></span><br></pre></td></tr></table></figure>
 
@@ -445,11 +454,11 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/04/01/python-countpi/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/10/26/python%E5%AE%9E%E8%B7%B5%E9%A1%B9%E7%9B%AE-shop/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          python 制作CPU压力测试——圆周率计算
+          python实践项目-shop
         
       </div>
     </a>
