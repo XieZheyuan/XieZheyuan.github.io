@@ -1,90 +1,327 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>1326：【例7.5】 取余运算（mod）答案</title>
-    <url>/2020/07/05/1326-mod-answer/</url>
-    <content><![CDATA[<h1 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h1><p><a href="http://ybt.ssoier.cn:8088/problem_show.php?pid=1326" target="_blank" rel="noopener">点击查看</a></p>
-<a id="more"></a>
+    <title>为hexo添加echarts,mathjax,mermaid等</title>
+    <url>/2020/08/19/hexo-add-mathjax-mermaid-echarts/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><h1 id="Echarts"><a href="#Echarts" class="headerlink" title="Echarts"></a>Echarts</h1><h2 id="Echarts-介绍"><a href="#Echarts-介绍" class="headerlink" title="Echarts 介绍"></a>Echarts 介绍</h2><p><a href="https://echarts.apache.org" target="_blank" rel="noopener">Echarts </a> 是开源电子图表HTML引擎    。</p>
+<h2 id="Echarts-示例-HTML"><a href="#Echarts-示例-HTML" class="headerlink" title="Echarts 示例(HTML)"></a>Echarts 示例(HTML)</h2><p>本实例来自 <a href="https://echarts.apache.org/zh/tutorial.html#5%20%E5%88%86%E9%92%9F%E4%B8%8A%E6%89%8B%20ECharts" target="_blank" rel="noopener">Echarts官网</a></p>
+<pre class=" language-html"><code class="language-html"><span class="token doctype">&lt;!DOCTYPE html></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>ECharts<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+    <span class="token comment" spellcheck="true">&lt;!-- 引入 echarts.js --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>echarts.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token comment" spellcheck="true">&lt;!-- 为ECharts准备一个具备大小（宽高）的Dom --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>main<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">600</span>px<span class="token punctuation">;</span><span class="token property">height</span><span class="token punctuation">:</span><span class="token number">400</span>px<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript">
+        <span class="token comment" spellcheck="true">// 基于准备好的dom，初始化echarts实例</span>
+        <span class="token keyword">var</span> myChart <span class="token operator">=</span> echarts<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'main'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<h1 id="初次解（有错）"><a href="#初次解（有错）" class="headerlink" title="初次解（有错）"></a>初次解（有错）</h1><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cmath></span></span>
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-<span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">long</span> <span class="token keyword">int</span> lli<span class="token punctuation">;</span>
-lli b<span class="token punctuation">,</span>p<span class="token punctuation">,</span>k<span class="token punctuation">;</span>
-lli <span class="token function">pow_</span><span class="token punctuation">(</span>lli a<span class="token punctuation">,</span> lli b<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    lli ans<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>b<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        ans <span class="token operator">*</span><span class="token operator">=</span> i<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 指定图表的配置项和数据</span>
+        <span class="token keyword">var</span> option <span class="token operator">=</span> <span class="token punctuation">{</span>
+            title<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                text<span class="token punctuation">:</span> <span class="token string">'ECharts 入门示例'</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            tooltip<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+            legend<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                data<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'销量'</span><span class="token punctuation">]</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            xAxis<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                data<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"衬衫"</span><span class="token punctuation">,</span><span class="token string">"羊毛衫"</span><span class="token punctuation">,</span><span class="token string">"雪纺衫"</span><span class="token punctuation">,</span><span class="token string">"裤子"</span><span class="token punctuation">,</span><span class="token string">"高跟鞋"</span><span class="token punctuation">,</span><span class="token string">"袜子"</span><span class="token punctuation">]</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            yAxis<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+            series<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+                name<span class="token punctuation">:</span> <span class="token string">'销量'</span><span class="token punctuation">,</span>
+                type<span class="token punctuation">:</span> <span class="token string">'bar'</span><span class="token punctuation">,</span>
+                data<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">36</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">]</span>
+            <span class="token punctuation">}</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 使用刚指定的配置项和数据显示图表。</span>
+        myChart<span class="token punctuation">.</span><span class="token function">setOption</span><span class="token punctuation">(</span>option<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></code></pre>
+<div id="echarts1627" style="width: 85%;height: 400px;margin: 0 auto"></div>
+
+<script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
+<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('echarts1627'));
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: 'ECharts 入门示例'
+            },
+            tooltip: {},
+            legend: {
+                data:['销量']
+            },
+            xAxis: {
+                data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+            },
+            yAxis: {},
+            series: [{
+                name: '销量',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20]
+            }]
+        }
+ 
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+</script>
+
+
+<h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><pre class=" language-powershell"><code class="language-powershell">npm install <span class="token operator">--</span>save hexo<span class="token operator">-</span>tag<span class="token operator">-</span>echarts3 </code></pre>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>将option属性的粘贴到xx处</p>
+<pre class=" language-markdown"><code class="language-markdown"><span class="token title important"><span class="token punctuation">#</span> 实例</span>
+{% echarts 400 '85%' %}
+xx
+ {%endecharts%}</code></pre>
+<p>比如</p>
+<pre class=" language-markdown"><code class="language-markdown">{% echarts 400 '85%' %}
+{
+<span class="token code keyword">            title: {</span>
+<span class="token code keyword">                text: 'ECharts 入门示例'</span>
+<span class="token code keyword">            },</span>
+<span class="token code keyword">            tooltip: {},</span>
+<span class="token code keyword">            legend: {</span>
+<span class="token code keyword">                data:['销量']</span>
+<span class="token code keyword">            },</span>
+<span class="token code keyword">            xAxis: {</span>
+<span class="token code keyword">                data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]</span>
+<span class="token code keyword">            },</span>
+<span class="token code keyword">            yAxis: {},</span>
+<span class="token code keyword">            series: [{</span>
+<span class="token code keyword">                name: '销量',</span>
+<span class="token code keyword">                type: 'bar',</span>
+<span class="token code keyword">                data: [5, 20, 36, 10, 10, 20]</span>
+<span class="token code keyword">            }]</span>
+<span class="token code keyword">        }</span>
+ {%endecharts%}</code></pre>
+<p>其中<code>400</code>是高度(height),<code>'85%'</code>是宽度(width)</p>
+<h1 id="Mathjax"><a href="#Mathjax" class="headerlink" title="Mathjax"></a>Mathjax</h1><h2 id="LaTex-amp-Mathjax"><a href="#LaTex-amp-Mathjax" class="headerlink" title="LaTex &amp; Mathjax"></a>LaTex &amp; Mathjax</h2><p>Mathjax是基于LaTex的数学公式渲染JavaScript脚本</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>在footer中添加</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config<span class="token punctuation">=</span>TeX-AMS-MML_HTMLorMML<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/x-mathjax-config<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript">
+MathJax<span class="token punctuation">.</span>Hub<span class="token punctuation">.</span><span class="token function">Config</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    showProcessingMessages<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//关闭js加载过程信息</span>
+    messageStyle<span class="token punctuation">:</span> <span class="token string">"none"</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//不显示信息</span>
+    extensions<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"tex2jax.js"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    jax<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"input/TeX"</span><span class="token punctuation">,</span> <span class="token string">"output/HTML-CSS"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    tex2jax<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        inlineMath<span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token punctuation">[</span><span class="token string">'$'</span><span class="token punctuation">,</span><span class="token string">'$'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">"\\("</span><span class="token punctuation">,</span><span class="token string">"\\)"</span><span class="token punctuation">]</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//行内公式选择符</span>
+        displayMath<span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token punctuation">[</span><span class="token string">'$$'</span><span class="token punctuation">,</span><span class="token string">'$$'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">"\\["</span><span class="token punctuation">,</span><span class="token string">"\\]"</span><span class="token punctuation">]</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//段内公式选择符</span>
+        skipTags<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'script'</span><span class="token punctuation">,</span> <span class="token string">'noscript'</span><span class="token punctuation">,</span> <span class="token string">'style'</span><span class="token punctuation">,</span> <span class="token string">'textarea'</span><span class="token punctuation">,</span> <span class="token string">'pre'</span><span class="token punctuation">,</span><span class="token string">'code'</span><span class="token punctuation">,</span><span class="token string">'a'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//避开某些标签</span>
+        ignoreClass<span class="token punctuation">:</span><span class="token string">"comment-content"</span><span class="token operator">|</span><span class="token string">"head-class"</span> <span class="token comment" spellcheck="true">//避开含该Class的标签，用|隔开</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token string">"HTML-CSS"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        availableFonts<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"STIX"</span><span class="token punctuation">,</span><span class="token string">"TeX"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//可选字体</span>
+        showMathMenu<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token comment" spellcheck="true">//关闭右击菜单显示</span>
     <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
-<span class="token punctuation">}</span> 
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    cin<span class="token operator">>></span>b<span class="token operator">>></span>p<span class="token operator">>></span>k<span class="token punctuation">;</span>
-    lli ans <span class="token operator">=</span> <span class="token function">pow</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span> p<span class="token punctuation">)</span> <span class="token operator">%</span> k<span class="token punctuation">;</span>
-    cout<span class="token operator">&lt;&lt;</span>ans<span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+MathJax<span class="token punctuation">.</span>Hub<span class="token punctuation">.</span><span class="token function">Queue</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"Typeset"</span><span class="token punctuation">,</span>MathJax<span class="token punctuation">.</span>Hub<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style language-css">
 
-</code></pre>
-<h4 id="错误分析"><a href="#错误分析" class="headerlink" title="错误分析"></a>错误分析</h4><p>pow<strong>太大</strong>，无法写入内存</p>
-<h1 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h1><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;algorithm></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;math.h></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
-<span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">long</span> <span class="token keyword">int</span> ll<span class="token punctuation">;</span>
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-ll <span class="token function">digui</span><span class="token punctuation">(</span>ll b<span class="token punctuation">,</span>ll p<span class="token punctuation">,</span>ll k<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>p<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    ll re<span class="token operator">=</span><span class="token function">digui</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span>p<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    re <span class="token operator">=</span> <span class="token punctuation">(</span>re <span class="token operator">*</span> re<span class="token punctuation">)</span><span class="token operator">%</span> k<span class="token punctuation">;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>p<span class="token operator">%</span><span class="token number">2</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        re<span class="token operator">=</span> <span class="token punctuation">(</span>re<span class="token operator">*</span>b<span class="token punctuation">)</span><span class="token operator">%</span>k<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> re<span class="token punctuation">;</span>
+    <span class="token selector"><span class="token class">.MathJax_Display</span></span><span class="token punctuation">{</span><span class="token property">overflow-x</span><span class="token punctuation">:</span>auto<span class="token punctuation">;</span><span class="token property">overflow-y</span><span class="token punctuation">:</span>hidden<span class="token punctuation">;</span><span class="token punctuation">}</span>
+    <span class="token selector"><span class="token class">.MathJax</span></span><span class="token punctuation">{</span><span class="token property">outline</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></code></pre>
+<blockquote>
+<p>来源不知道是哪位大神，请在评论区认领！</p>
+</blockquote>
+<p>之后试一试在posts中写这个</p>
+<pre class=" language-markdown"><code class="language-markdown">$$
+S = \pi \times r^2
+$$</code></pre>
+<p>$$<br>S = \pi \times r^2<br>$$</p>
+<h1 id="Mermaid"><a href="#Mermaid" class="headerlink" title="Mermaid"></a>Mermaid</h1><h2 id="Mermaid配置"><a href="#Mermaid配置" class="headerlink" title="Mermaid配置"></a>Mermaid配置</h2><p>看这个：<a href="https://blog.csdn.net/Olivia_Vang/article/details/92987859" target="_blank" rel="noopener">https://blog.csdn.net/Olivia_Vang/article/details/92987859</a></p>
+<h2 id="Mermaid实现"><a href="#Mermaid实现" class="headerlink" title="Mermaid实现"></a>Mermaid实现</h2><pre class=" language-markdown"><code class="language-markdown">
+graph TB;
+   A--Hello World-->B
+   B-.->C
+   A==>C
 
-<span class="token punctuation">}</span> 
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    ll b<span class="token punctuation">,</span>p<span class="token punctuation">,</span>k<span class="token punctuation">;</span>cin<span class="token operator">>></span>b<span class="token operator">>></span>p<span class="token operator">>></span>k<span class="token punctuation">;</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%lld^%lld mod %lld=%lld"</span><span class="token punctuation">,</span>b<span class="token punctuation">,</span>p<span class="token punctuation">,</span>k<span class="token punctuation">,</span><span class="token function">digui</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span>p<span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+
+graph BT;
+   A--Hello World-->B
+   B-.->C
+   A==>C
+
+
+graph LR;
+   A--Hello World-->B
+   B-.->C
+   A==>C
+
+
+graph RL;
+   A--Hello World-->B
+   B-.->C
+   A==>C
+
+sequenceDiagram
+<span class="token code keyword">    participant a as Billy</span>
+<span class="token code keyword">    participant b as Ely</span>
+<span class="token code keyword">    loop Everyday</span>
+<span class="token code keyword">        a->>b: Hello!</span>
+<span class="token code keyword">        a-->>b: Hello!Are you have a lot of money?</span>
+<span class="token code keyword">        activate a</span>
+<span class="token code keyword">        Note left of a: Think a moment</span>
+<span class="token code keyword">        alt Have</span>
+<span class="token code keyword">            a-xb: I got it!</span>
+<span class="token code keyword">        else Havn't</span>
+<span class="token code keyword">            a-xb: No!</span>
+<span class="token code keyword">        end</span>
+<span class="token code keyword">        opt Near the Holiday</span>
+<span class="token code keyword">            a-->b: Good holiday!</span>
+<span class="token code keyword">        end</span>
+<span class="token code keyword">    en</span>
 </code></pre>
-]]></content>
+<div class="firstTest mermaid">
+graph TB;
+   A--Hello World--&gt;B
+   B-.-&gt;C
+   A==&gt;C
+</div>
+<div class="firstTest mermaid">
+graph BT;
+   A--Hello World--&gt;B
+   B-.-&gt;C
+   A==&gt;C
+    </div>
+ <div class="firstTest mermaid">
+graph LR;
+   A--Hello World--&gt;B
+   B-.-&gt;C
+   A==&gt;C
+    </div>
+ <div class="firstTest mermaid">
+graph RL;
+   A--Hello World--&gt;B
+   B-.-&gt;C
+   A==&gt;C
+    </div>
+   <div class="firstTest mermaid">
+       sequenceDiagram
+    participant a as Billy
+    participant b as Ely
+    loop Everyday
+        a-&gt;&gt;b: Hello!
+        a--&gt;&gt;b: Hello!Are you have a lot of money?
+        activate a
+        Note left of a: Think a moment
+        alt Have
+            a-xb: I got it!
+        else Havn't
+            a-xb: No!
+        end
+        opt Near the Holiday
+            a--&gt;b: Good holiday!
+        end
+    end
+   </div>
+
+<p>参考：<a href="https://blog.csdn.net/fenghuizhidao/article/details/79440583" target="_blank" rel="noopener">https://blog.csdn.net/fenghuizhidao/article/details/79440583</a></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
       <categories>
         <category>计算机</category>
       </categories>
       <tags>
-        <tag>C/C++</tag>
-        <tag>信息学奥赛一本通</tag>
+        <tag>hexo</tag>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>超完整Github开发指南</title>
+    <url>/2020/04/03/github-guide/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><h3 id="本文章为imgchr图床测试文章"><a href="#本文章为imgchr图床测试文章" class="headerlink" title="本文章为imgchr图床测试文章"></a>本文章为imgchr图床测试文章</h3><h1 id="0、目录"><a href="#0、目录" class="headerlink" title="0、目录"></a>0、目录</h1><a id="more"></a>
+<p><a href="#first">1、注册GitHub 账户</a><br><a href="#second">2、创建第一个仓库 </a><br><a href="#third">3、上传至仓库</a><br><a name="#fourth">4、使用Github Pages创造自己的网站</a></p>
+<h1 id="1、注册GitHub-账户"><a href="#1、注册GitHub-账户" class="headerlink" title="1、注册GitHub 账户"></a>1、注册GitHub 账户</h1><p>访问<a href="http://www.github.com/" target="_blank" rel="noopener">Github</a>,若无意外，则效果为以下所示（Firefox)</p>
+<p><img src="https://s1.ax1x.com/2020/10/06/0UFtBV.png" alt="Github首页"></p>
+<p>输入<strong>用户名</strong>、<strong>邮箱（确保可用）</strong>、<strong>密码</strong>，点击Sign up for Github，再填写几个个人信息，就Well Done了！</p>
+<p>注册完后点击Sign in,填写用户名及密码即可。</p>
+<p><img src="https://s1.ax1x.com/2020/10/06/0UF8cn.png" alt="Github 登录页"></p>
+<p>然后就可以看到个人界面了！</p>
+<p><img src="https://s1.ax1x.com/2020/10/06/0UFYn0.png" alt="Github 个人主页"><br><a name="second"></a></p>
+<h1 id="2、创建第一个仓库"><a href="#2、创建第一个仓库" class="headerlink" title="2、创建第一个仓库"></a>2、创建第一个仓库</h1><p>点击Repositories右侧的New，即可跳转至仓库创造页！</p>
+<p>​<img src="https://s1.ax1x.com/2020/10/06/0UFN7T.png" alt="仓库创造页"></p>
+<p>可以填写Repository name(仓库名称）、Description（仓库描述）等。</p>
+<p>注：关于license：请访问<a href="https://choosealicense.com/" target="_blank" rel="noopener">Choose an open source license</a></p>
+<p><a name="third"></a></p>
+<h1 id="3、上传至仓库"><a href="#3、上传至仓库" class="headerlink" title="3、上传至仓库"></a>3、上传至仓库</h1><p>1、下载<a href="https://desktop.github.com/" target="_blank" rel="noopener">GitHub Desktop</a></p>
+<p>2、打开软件</p>
+<p>3、克隆仓库</p>
+<p><img src="https://s1.ax1x.com/2020/10/06/0UFGXq.png" alt="Github Desktop"></p>
+<p>编写，点击<strong>COMMIT TO MASTER</strong>和<strong>PUSH ORIGN</strong>即可！<br><a name="fourth"></a></p>
+<h1 id="4、使用Github-Pages创造自己的网站"><a href="#4、使用Github-Pages创造自己的网站" class="headerlink" title="4、使用Github Pages创造自己的网站"></a>4、使用Github Pages创造自己的网站</h1><p>新建一个仓库，以<strong>username.github.io</strong> 命名（username是指你的用户名）<br>新建完成后，使用Github Desktop推送网页至该仓库。<br>Q&amp;：万一网站做不好肿么办？<br>A：<br>1、使用Github主题：<br>访问<strong>Settings-&gt;GitHub Pages-&gt;Theme Chooser-&gt;Change Theme</strong> 选择样式，不过好像只适合写主页，并且必须使用<strong>Markdown</strong>格式。<br>2、使用模板网站，这里推荐<a href="https://html5up.net/" target="_blank" rel="noopener">HTML5 UP</a><br><img src="https://s1.ax1x.com/2020/10/06/0UFdNF.png" alt="HTML5UP"><br>看到自己心仪的主题，可以选择<strong>Free Download</strong>，或者点击<strong>Live Demo</strong>查看预览。<br>注：大家可以看看我的网站：<a href="http://www.xiezheyuan.top/" target="_blank" rel="noopener">xiezheyuan.top</a></p>
+<p><a name="fifth"></a></p>
+<h1 id="5、为自己的项目创建Github-Pages-网站"><a href="#5、为自己的项目创建Github-Pages-网站" class="headerlink" title="5、为自己的项目创建Github Pages 网站"></a>5、为自己的项目创建Github Pages 网站</h1><p>与<em>4、使用Github Pages创造自己的网站</em> 类似，不过需要选择Settings-&gt;GitHub Pages-&gt;Source选择上传地址，默认为None，建议为<strong>master branch /docs folder</strong>，这样可以将网站与程序分开（<strong>master branch /docs folder</strong>指仅上传docs目录）<br>首发于CSDN博客<a href="https://blog.csdn.net/pythonbilly" target="_blank" rel="noopener">https://blog.csdn.net/pythonbilly</a></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>计算机</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
       </tags>
   </entry>
   <entry>
     <title>1328：【例7.7】光荣的梦想题解</title>
     <url>/2020/07/26/1328-dream-of-glory/</url>
-    <content><![CDATA[<style src="/blogimages/ybt.css" type="text/css"></style>
-
-<h1 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h1><td class="pcontent"><center><h3>1328：【例7.7】光荣的梦想</h3></center><font size=3><h3>【题目描述】</h3>
-<div class=xxbox><p>Prince对他在这片大陆上维护的秩序感到满意，于是决定启程离开艾泽拉斯。在他动身之前，Prince决定赋予King_Bette最强大的能量以守护世界、保卫这里的平衡与和谐。在那个时代，平衡是个梦想。因为有很多奇异的物种拥有各种不稳定的能量，平衡瞬间即被打破。KB决定求助于你，帮助他完成这个梦想。 </p>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><h1 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h1><center><h3>1328：【例7.7】光荣的梦想</h3></center><font size="3"><h3>【题目描述】</h3>
+<div class="xxbox"><p>Prince对他在这片大陆上维护的秩序感到满意，于是决定启程离开艾泽拉斯。在他动身之前，Prince决定赋予King_Bette最强大的能量以守护世界、保卫这里的平衡与和谐。在那个时代，平衡是个梦想。因为有很多奇异的物种拥有各种不稳定的能量，平衡瞬间即被打破。KB决定求助于你，帮助他完成这个梦想。 </p>
 <p>一串数列即表示一个世界的状态。 </p>
 <p>平衡是指这串数列以升序排列。而从一串无序数列到有序数列需要通过交换数列中的元素来实现。KB的能量只能交换相邻两个数字。他想知道他最少需要交换几次就能使数列有序。</p>
 </div>
 <h3>【输入】</h3>
-<div class=xxbox><p>第一行为数列中数的个数n,第二行为n ≤ 10000个数。表示当前数列的状态。</p>
+<div class="xxbox"><p>第一行为数列中数的个数n,第二行为n ≤ 10000个数。表示当前数列的状态。</p>
 </div><h3>【输出】</h3>
-<div class=xxbox><p>输出一个整数，表示最少需要交换几次能达到平衡状态。</p>
+<div class="xxbox"><p>输出一个整数，表示最少需要交换几次能达到平衡状态。</p>
 </div><h3>【输入样例】</h3>
-```
-4
-2 1 4 3```
-<font size=3><h3>【输出样例】</h3>
-```
-2
-```
-<a id="more"></a> 
+
+<p>4<br>2 1 4 3</p>
+<p><font size="3"></font></p><h3><font size="3">【输出样例】</font></h3><p></p><font size="3">
+<pre><code>2</code></pre><a id="more"></a> 
 
 <h1 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h1><h2 id="Linux风格C-代码"><a href="#Linux风格C-代码" class="headerlink" title="Linux风格C++代码"></a>Linux风格C++代码</h2><pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cstring></span></span>
@@ -370,7 +607,25 @@ using namespace std<span class="token punctuation">;</span>
 </code></pre>
 <p><img src="/blogimages/1328-cpp-judge-answer.png" alt="用户名:xiezheyuan，题目编号:1328，运行编号:7757442，代码长度:906Bytes
 通过"></p>
-]]></content>
+</font></font><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
       <categories>
         <category>计算机</category>
       </categories>
@@ -380,9 +635,156 @@ using namespace std<span class="token punctuation">;</span>
       </tags>
   </entry>
   <entry>
+    <title>python实践项目-shop</title>
+    <url>/2019/10/26/python-shop/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><h2 id="python实践项目-shop"><a href="#python实践项目-shop" class="headerlink" title="python实践项目-shop"></a>python实践项目-shop</h2><h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><ul>
+<li>文件打开/保存</li>
+<li>cmd应用</li>
+<li>prettytable<a id="more"></a>
+<h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2></li>
+</ul>
+<p>使用CMD程序，实现商店管理<br>python3+pycharm</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><strong>getPicke.py</strong> 初始化PICKLE</p>
+<pre class=" language-python"><code class="language-python">data<span class="token operator">=</span><span class="token string">"[[\"6953787355327\",\"晨光24色水彩笔\",\"25\"]]"</span>
+obj<span class="token operator">=</span>open<span class="token punctuation">(</span><span class="token string">"libray/shop.pkl"</span><span class="token punctuation">,</span><span class="token string">"w"</span><span class="token punctuation">)</span>
+obj<span class="token punctuation">.</span>write<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+obj<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p><strong>pklAdmin.py</strong> 管理</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Shop1.0 Pkl File Admin Program"</span><span class="token punctuation">)</span>
+<span class="token keyword">import</span> prettytable
+<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+    cmd<span class="token operator">=</span>input<span class="token punctuation">(</span><span class="token string">">>>"</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> cmd <span class="token operator">==</span> <span class="token string">"quit"</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"exiting..."</span><span class="token punctuation">)</span>
+        <span class="token keyword">break</span>
+    <span class="token keyword">elif</span> cmd <span class="token operator">==</span> <span class="token string">"exit"</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Do you want to exit now?"</span><span class="token punctuation">)</span>
+        option<span class="token operator">=</span>input<span class="token punctuation">(</span><span class="token string">"(y/&lt;Other>)"</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>option <span class="token operator">==</span> <span class="token string">"y"</span> <span class="token operator">or</span> option <span class="token operator">==</span> <span class="token string">"Y"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"exiting..."</span><span class="token punctuation">)</span>
+            <span class="token keyword">break</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Canceled to exit"</span><span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> cmd <span class="token operator">==</span> <span class="token string">"read"</span> <span class="token operator">or</span> cmd <span class="token operator">==</span> <span class="token string">"Read"</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"You Want To Read Commodities."</span><span class="token punctuation">)</span>
+        tobj<span class="token operator">=</span>prettytable<span class="token punctuation">.</span>PrettyTable<span class="token punctuation">(</span><span class="token punctuation">[</span>
+            <span class="token string">"Bar code"</span><span class="token punctuation">,</span>
+            <span class="token string">"Trade name"</span><span class="token punctuation">,</span>
+            <span class="token string">"Price(RMB)"</span>
+        <span class="token punctuation">]</span><span class="token punctuation">)</span>
+        o<span class="token operator">=</span>eval<span class="token punctuation">(</span>open<span class="token punctuation">(</span><span class="token string">"libray/shop.pkl"</span><span class="token punctuation">,</span><span class="token string">"r"</span><span class="token punctuation">,</span>encoding<span class="token operator">=</span><span class="token string">"gbk"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> o<span class="token punctuation">:</span>
+            tobj<span class="token punctuation">.</span>add_row<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>tobj<span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> cmd <span class="token operator">==</span> <span class="token string">"add"</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"You Want To Add a Commodity"</span><span class="token punctuation">)</span>
+        s<span class="token operator">=</span>input<span class="token punctuation">(</span><span class="token string">"Input Commodity Name..."</span><span class="token punctuation">)</span>
+        p<span class="token operator">=</span>input<span class="token punctuation">(</span><span class="token string">"Input Commodity Price..."</span><span class="token punctuation">)</span>
+        b <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"Input Commodity Bar Code..."</span><span class="token punctuation">)</span>
+        o <span class="token operator">=</span> eval<span class="token punctuation">(</span>open<span class="token punctuation">(</span><span class="token string">"libray/shop.pkl"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">,</span>encoding<span class="token operator">=</span><span class="token string">"gbk"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        o<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">[</span>b<span class="token punctuation">,</span>s<span class="token punctuation">,</span>p<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        obj<span class="token operator">=</span>open<span class="token punctuation">(</span><span class="token string">"libray/shop.pkl"</span><span class="token punctuation">,</span><span class="token string">"w"</span><span class="token punctuation">)</span>
+        obj<span class="token punctuation">.</span>write<span class="token punctuation">(</span>str<span class="token punctuation">(</span>o<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        obj<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Now,Add Right..."</span><span class="token punctuation">)</span>
+        tobj<span class="token operator">=</span>prettytable<span class="token punctuation">.</span>PrettyTable<span class="token punctuation">(</span><span class="token punctuation">[</span>
+            <span class="token string">"Bar code"</span><span class="token punctuation">,</span>
+            <span class="token string">"Trade name"</span><span class="token punctuation">,</span>
+            <span class="token string">"Price(RMB)"</span>
+        <span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> o<span class="token punctuation">:</span>
+            tobj<span class="token punctuation">.</span>add_row<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>tobj<span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> cmd <span class="token operator">==</span> <span class="token string">"help"</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"PklAdmin Document"</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token triple-quoted-string string">'''
+        add:Add items to program directory.
+        read/Read:Displays all saved items.
+        exit:Quit program(can cancel).
+        quit:Quit program(can't cancel)
+        del/delete/remove:Remove items to program directory.
+        help:Displays this.
+        '''</span><span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> cmd <span class="token operator">==</span> <span class="token string">"del"</span> <span class="token operator">or</span> cmd <span class="token operator">==</span> <span class="token string">"delete"</span> <span class="token operator">or</span> cmd <span class="token operator">==</span> <span class="token string">"remove"</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"You want to delete a commodity"</span><span class="token punctuation">)</span>
+        b<span class="token operator">=</span>input<span class="token punctuation">(</span><span class="token string">"Input Commodity Bar Code..."</span><span class="token punctuation">)</span>
+        o <span class="token operator">=</span> eval<span class="token punctuation">(</span>open<span class="token punctuation">(</span><span class="token string">"libray/shop.pkl"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">"gbk"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> o<span class="token punctuation">:</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Find!"</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span>
+                o<span class="token punctuation">.</span>remove<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Now,Remove Right..."</span><span class="token punctuation">)</span>
+        tobj <span class="token operator">=</span> prettytable<span class="token punctuation">.</span>PrettyTable<span class="token punctuation">(</span><span class="token punctuation">[</span>
+            <span class="token string">"Bar code"</span><span class="token punctuation">,</span>
+            <span class="token string">"Trade name"</span><span class="token punctuation">,</span>
+            <span class="token string">"Price(RMB)"</span>
+        <span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> o<span class="token punctuation">:</span>
+            tobj<span class="token punctuation">.</span>add_row<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>tobj<span class="token punctuation">)</span>
+        obj <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">"libray/shop.pkl"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span>
+        obj<span class="token punctuation">.</span>write<span class="token punctuation">(</span>str<span class="token punctuation">(</span>o<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        obj<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"No such command!Please verify the input."</span><span class="token punctuation">)</span>
+
+</code></pre>
+<p><strong>main1.py</strong> 主程序</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"SHOP 1.0 COMMAND PROGRAM"</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">get</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    o <span class="token operator">=</span> eval<span class="token punctuation">(</span>open<span class="token punctuation">(</span><span class="token string">"libray/shop.pkl"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">"gbk"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> o<span class="token punctuation">:</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> i
+    <span class="token keyword">return</span> <span class="token boolean">False</span>
+<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"input item times..."</span><span class="token punctuation">)</span>
+    t<span class="token operator">=</span>input<span class="token punctuation">(</span><span class="token string">"..."</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>t <span class="token operator">==</span> None <span class="token operator">or</span> t <span class="token operator">==</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">break</span>
+    t<span class="token operator">=</span>int<span class="token punctuation">(</span>t<span class="token punctuation">)</span>
+    sum_<span class="token operator">=</span><span class="token number">0</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        p<span class="token operator">=</span>get<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">"Bar code..."</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>p <span class="token operator">==</span> <span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Don't have this item"</span><span class="token punctuation">)</span>
+            <span class="token keyword">continue</span>
+        sum_<span class="token operator">=</span> sum_ <span class="token operator">+</span> int<span class="token punctuation">(</span>p<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>p<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">"RMB"</span><span class="token operator">+</span>p<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Sum is %d"</span><span class="token operator">%</span>sum_<span class="token punctuation">)</span></code></pre>
+<p>详情请访问<a href="https://gitee.com/pybilly/shop" target="_blank" rel="noopener">我的码云仓库</a><br>下个项目再见，See you</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>计算机</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>html 嵌入404公益页面</title>
     <url>/2020/04/07/404page/</url>
-    <content><![CDATA[<p>大部分人在网上看到的公益404页面是如何写的呢？</p>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><p>大部分人在网上看到的公益404页面是如何写的呢？</p>
 <a id="more"></a>
 
 <p>其实很简单！</p>
@@ -403,7 +805,25 @@ using namespace std<span class="token punctuation">;</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></code></pre>
 <p>就区区13行，就实现了！</p>
 <p>首发于CSDN博客<a href="https://blog.csdn.net/pythonbilly" target="_blank" rel="noopener">https://blog.csdn.net/pythonbilly</a></p>
-]]></content>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
       <categories>
         <category>计算机</category>
       </categories>
@@ -412,42 +832,276 @@ using namespace std<span class="token punctuation">;</span>
       </tags>
   </entry>
   <entry>
-    <title>超完整Github开发指南</title>
-    <url>/2020/04/03/github-guide/</url>
-    <content><![CDATA[<h1 id="0、目录"><a href="#0、目录" class="headerlink" title="0、目录"></a>0、目录</h1><a id="more"></a>
-<p><a href="#first">1、注册GitHub 账户</a><br><a href="#second">2、创建第一个仓库 </a><br><a href="#third">3、上传至仓库</a><br><a name="#fourth">4、使用Github Pages创造自己的网站</a></p>
-<h1 id="1、注册GitHub-账户"><a href="#1、注册GitHub-账户" class="headerlink" title="1、注册GitHub 账户"></a>1、注册GitHub 账户</h1><p>访问<a href="http://www.github.com/" target="_blank" rel="noopener">Github</a>,若无意外，则效果为以下所示（Firefox)</p>
-<p><img src="/blogimages/github-mainpage.png" alt="Github首页"></p>
-<p>输入<strong>用户名</strong>、<strong>邮箱（确保可用）</strong>、<strong>密码</strong>，点击Sign up for Github，再填写几个个人信息，就Well Done了！</p>
-<p>注册完后点击Sign in,填写用户名及密码即可。</p>
-<p><img src="/blogimages/github-login.png" alt="Github 登录页"></p>
-<p>然后就可以看到个人界面了！</p>
-<p><img src="/blogimages/github-logined.png" alt="Github 个人主页"><br><a name="second"></a></p>
-<h1 id="2、创建第一个仓库"><a href="#2、创建第一个仓库" class="headerlink" title="2、创建第一个仓库"></a>2、创建第一个仓库</h1><p>点击Repositories右侧的New，即可跳转至仓库创造页！</p>
-<p>​<img src="/blogimages/github-new.png" alt="仓库创造页"></p>
-<p>可以填写Repository name(仓库名称）、Description（仓库描述）等。</p>
-<p>注：关于license：请访问<a href="https://choosealicense.com/" target="_blank" rel="noopener">Choose an open source license</a></p>
-<p><a name="third"></a></p>
-<h1 id="3、上传至仓库"><a href="#3、上传至仓库" class="headerlink" title="3、上传至仓库"></a>3、上传至仓库</h1><p>1、下载<a href="https://desktop.github.com/" target="_blank" rel="noopener">GitHub Desktop</a></p>
-<p>2、打开软件</p>
-<p>3、克隆仓库</p>
-<p><img src="/blogimages/github-desktop.png" alt="Github Desktop"></p>
-<p>编写，点击<strong>COMMIT TO MASTER</strong>和<strong>PUSH ORIGN</strong>即可！<br><a name="fourth"></a></p>
-<h1 id="4、使用Github-Pages创造自己的网站"><a href="#4、使用Github-Pages创造自己的网站" class="headerlink" title="4、使用Github Pages创造自己的网站"></a>4、使用Github Pages创造自己的网站</h1><p>新建一个仓库，以<strong>username.github.io</strong> 命名（username是指你的用户名）<br>新建完成后，使用Github Desktop推送网页至该仓库。<br>Q&amp;：万一网站做不好肿么办？<br>A：<br>1、使用Github主题：<br>访问<strong>Settings-&gt;GitHub Pages-&gt;Theme Chooser-&gt;Change Theme</strong> 选择样式，不过好像只适合写主页，并且必须使用<strong>Markdown</strong>格式。<br>2、使用模板网站，这里推荐<a href="https://html5up.net/" target="_blank" rel="noopener">HTML5 UP</a><br><img src="/blogimages/htmlup.png" alt="HTML5UP"><br>看到自己心仪的主题，可以选择<strong>Free Download</strong>，或者点击<strong>Live Demo</strong>查看预览。<br>注：大家可以看看我的网站：<a href="http://xiezheyuan.github.io/" target="_blank" rel="noopener">xiezheyuan.github.io</a></p>
-<p><a name="fifth"></a></p>
-<h1 id="5、为自己的项目创建Github-Pages-网站"><a href="#5、为自己的项目创建Github-Pages-网站" class="headerlink" title="5、为自己的项目创建Github Pages 网站"></a>5、为自己的项目创建Github Pages 网站</h1><p>与<em>4、使用Github Pages创造自己的网站</em> 类似，不过需要选择Settings-&gt;GitHub Pages-&gt;Source选择上传地址，默认为None，建议为<strong>master branch /docs folder</strong>，这样可以将网站与程序分开（<strong>master branch /docs folder</strong>指仅上传docs目录）<br>首发于CSDN博客<a href="https://blog.csdn.net/pythonbilly" target="_blank" rel="noopener">https://blog.csdn.net/pythonbilly</a></p>
-]]></content>
+    <title>1326：【例7.5】 取余运算（mod）答案</title>
+    <url>/2020/07/05/1326-mod-answer/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><h1 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h1><p><a href="http://ybt.ssoier.cn:8088/problem_show.php?pid=1326" target="_blank" rel="noopener">点击查看</a></p>
+<a id="more"></a>
+
+<h1 id="初次解（有错）"><a href="#初次解（有错）" class="headerlink" title="初次解（有错）"></a>初次解（有错）</h1><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cmath></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">long</span> <span class="token keyword">int</span> lli<span class="token punctuation">;</span>
+lli b<span class="token punctuation">,</span>p<span class="token punctuation">,</span>k<span class="token punctuation">;</span>
+lli <span class="token function">pow_</span><span class="token punctuation">(</span>lli a<span class="token punctuation">,</span> lli b<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    lli ans<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>b<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        ans <span class="token operator">*</span><span class="token operator">=</span> i<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    cin<span class="token operator">>></span>b<span class="token operator">>></span>p<span class="token operator">>></span>k<span class="token punctuation">;</span>
+    lli ans <span class="token operator">=</span> <span class="token function">pow</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span> p<span class="token punctuation">)</span> <span class="token operator">%</span> k<span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span>ans<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h4 id="错误分析"><a href="#错误分析" class="headerlink" title="错误分析"></a>错误分析</h4><p>pow<strong>太大</strong>，无法写入内存</p>
+<h1 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h1><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;algorithm></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;math.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
+<span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">long</span> <span class="token keyword">int</span> ll<span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+ll <span class="token function">digui</span><span class="token punctuation">(</span>ll b<span class="token punctuation">,</span>ll p<span class="token punctuation">,</span>ll k<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>p<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    ll re<span class="token operator">=</span><span class="token function">digui</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span>p<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    re <span class="token operator">=</span> <span class="token punctuation">(</span>re <span class="token operator">*</span> re<span class="token punctuation">)</span><span class="token operator">%</span> k<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>p<span class="token operator">%</span><span class="token number">2</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        re<span class="token operator">=</span> <span class="token punctuation">(</span>re<span class="token operator">*</span>b<span class="token punctuation">)</span><span class="token operator">%</span>k<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> re<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span> 
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    ll b<span class="token punctuation">,</span>p<span class="token punctuation">,</span>k<span class="token punctuation">;</span>cin<span class="token operator">>></span>b<span class="token operator">>></span>p<span class="token operator">>></span>k<span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%lld^%lld mod %lld=%lld"</span><span class="token punctuation">,</span>b<span class="token punctuation">,</span>p<span class="token punctuation">,</span>k<span class="token punctuation">,</span><span class="token function">digui</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span>p<span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
       <categories>
         <category>计算机</category>
       </categories>
       <tags>
-        <tag>Github</tag>
+        <tag>C/C++</tag>
+        <tag>信息学奥赛一本通</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用Python打造自己的垃圾分类小程序</title>
+    <url>/2020/10/17/waste-classifier/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><p>我们需要以下程序</p>
+<ul>
+<li>PyCharm Community Edition 2020.2（可选）</li>
+<li>Python 3</li>
+</ul>
+<h1 id="创建自己的数据集"><a href="#创建自己的数据集" class="headerlink" title="创建自己的数据集"></a>创建自己的数据集</h1><p>新建一个目录<code>trains</code>,创建两个文件<code>train.csv</code>与<code>train.json</code></p>
+<pre><code>trains/
+    train.csv
+    train.json</code></pre><p>train.json留空,train.csv写入以下内容</p>
+<pre><code>塑料袋,1
+塑料保鲜膜,1
+一次性餐具,2
+泥土,2
+黄瓜,3
+茄子,3
+白菜,3
+大豆,3
+中药残渣,3
+易拉罐,1
+花朵,3
+电池,4
+影像带,4
+荧光灯,4</code></pre><blockquote>
+<p>其中1代表<strong>可回收垃圾</strong>,2代表<strong>干垃圾</strong>(其他垃圾),3代表<strong>湿垃圾</strong>(厨余垃圾或易腐垃圾),4代表<strong>有害垃圾</strong>.</p>
+</blockquote>
+<h1 id="1、格式化数据程序"><a href="#1、格式化数据程序" class="headerlink" title="1、格式化数据程序"></a>1、格式化数据程序</h1><p>新建<code>formater.py</code></p>
+<pre><code>trains/
+    train.csv
+    train.json
+formater.py</code></pre><h2 id="安装jieba分词"><a href="#安装jieba分词" class="headerlink" title="安装jieba分词"></a>安装jieba分词</h2><pre><code>pip install jieba -i https://pypi.douban.com/simple/</code></pre><p>如果出现<code>Successfully installed jieba-***</code>字样，表示安装成功，否则可能是网络问题</p>
+<blockquote>
+<p><code>https://pypi.douban.com/simple/</code>是豆瓣的镜像，如果使用默认镜像会超时</p>
+</blockquote>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> jieba
+s <span class="token operator">=</span> <span class="token string">"塑料保鲜膜"</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>list<span class="token punctuation">(</span>jieba<span class="token punctuation">.</span>cut<span class="token punctuation">(</span>s<span class="token punctuation">,</span> cut_all<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p>结果：</p>
+<pre><code>Building prefix dict from the default dictionary ...
+Loading model from cache C:\Users\mayn\AppData\Local\Temp\jieba.cache
+Loading model cost 0.615 seconds.
+Prefix dict has been built successfully.
+['塑料', '保鲜', '保鲜膜']</code></pre><p><code>jieba.cut</code>用来分词，cut_all参数用来指定是否使用“全分词”模式。</p>
+<p><a href="https://github.com/fxsjy/jieba" target="_blank" rel="noopener">Jieba’s Github</a></p>
+<h2 id="开始正式编写"><a href="#开始正式编写" class="headerlink" title="开始正式编写"></a>开始正式编写</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> jieba
+<span class="token keyword">import</span> json
+
+
+<span class="token keyword">def</span> <span class="token function">read</span><span class="token punctuation">(</span>s<span class="token punctuation">:</span> str<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> s<span class="token punctuation">.</span>splitlines<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        k <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> j <span class="token keyword">in</span> i<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">","</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            k<span class="token punctuation">.</span>append<span class="token punctuation">(</span>j<span class="token punctuation">)</span>
+        data<span class="token punctuation">.</span>append<span class="token punctuation">(</span>k<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> data
+
+
+<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"trains/train.csv"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    s <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+data <span class="token operator">=</span> read<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+json_data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> data<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+    field <span class="token operator">=</span> i<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    field_jieba <span class="token operator">=</span> list<span class="token punctuation">(</span>jieba<span class="token punctuation">.</span>cut<span class="token punctuation">(</span>field<span class="token punctuation">,</span> cut_all<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    json_data<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">[</span>field_jieba<span class="token punctuation">,</span> int<span class="token punctuation">(</span>i<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"trains/train.json"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    s <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>json_data<span class="token punctuation">)</span>
+    f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+</code></pre>
+<p>read函数：读取csv函数<br>for二重循环：解析csv，分词并写入数据<br>最后一个with语句：写入json</p>
+<h1 id="编写主程序"><a href="#编写主程序" class="headerlink" title="编写主程序"></a>编写主程序</h1><p>新建main.py</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> json
+<span class="token keyword">import</span> jieba
+
+<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"trains/train.json"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    s <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+s <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+
+name <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"垃圾名称：\n"</span><span class="token punctuation">)</span>
+name_jieba <span class="token operator">=</span> list<span class="token punctuation">(</span>jieba<span class="token punctuation">.</span>cut<span class="token punctuation">(</span>name<span class="token punctuation">,</span> cut_all<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 计算样本比例</span>
+w<span class="token operator">=</span><span class="token number">0</span>
+w1<span class="token operator">=</span><span class="token number">0</span>
+wd <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> s<span class="token punctuation">:</span>
+    <span class="token keyword">for</span> j <span class="token keyword">in</span> name_jieba<span class="token punctuation">:</span>
+        w<span class="token operator">+=</span><span class="token number">1</span>
+        <span class="token keyword">if</span> j <span class="token keyword">in</span> i<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+            w1<span class="token operator">+=</span><span class="token number">1</span>
+            wd<span class="token punctuation">[</span>i<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
+
+wb <span class="token operator">=</span> w1<span class="token operator">/</span>w
+<span class="token keyword">try</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"收录情况：%.4f%%"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>wb <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"可回收垃圾概率：%.4f%%"</span> <span class="token operator">%</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>wd<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">/</span> w1<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"干垃圾垃圾概率：%.4f%%"</span> <span class="token operator">%</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>wd<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">/</span> w1<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"湿垃圾垃圾概率：%.4f%%"</span> <span class="token operator">%</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>wd<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">/</span> w1<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"有害垃圾垃圾概率：%.4f%%"</span> <span class="token operator">%</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>wd<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">/</span> w1<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">except</span> ZeroDivisionError<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"暂时没有收录哦！"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>4-7行：读取训练集格式化后的json文件<br>14-21行：计算概率<br>22-30：输出结果</p>
+<p>其实也没有用复杂算法，比较简单。</p>
+<h2 id="输出解释"><a href="#输出解释" class="headerlink" title="输出解释"></a>输出解释</h2><h3 id="收录情况"><a href="#收录情况" class="headerlink" title="收录情况"></a>收录情况</h3><p>指该垃圾分词后的关键词占训练集总关键词的百分比。</p>
+<h2 id="类别的概率"><a href="#类别的概率" class="headerlink" title="类别的概率"></a>类别的概率</h2><p>指该垃圾分词后的关键词在训练集中指定的垃圾在某类型的百分比</p>
+<h2 id="示例输入输出"><a href="#示例输入输出" class="headerlink" title="示例输入输出"></a>示例输入输出</h2><pre><code>垃圾名称：
+塑料
+Building prefix dict from the default dictionary ...
+Loading model from cache C:\Users\mayn\AppData\Local\Temp\jieba.cache
+Loading model cost 0.622 seconds.
+Prefix dict has been built successfully.
+收录情况：12.5000%
+可回收垃圾概率：100.0000%
+干垃圾垃圾概率：0.0000%
+湿垃圾垃圾概率：0.0000%
+有害垃圾垃圾概率：0.0000%
+程序结束</code></pre><h1 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h1><p><a href="https://github.com/XieZheyuan/waste-classifier" target="_blank" rel="noopener">Github</a></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>计算机</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>人工智能</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>无8数的探究</title>
+    <url>/2020/07/04/none-8-number/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><h1 id="什么是无八数"><a href="#什么是无八数" class="headerlink" title="什么是无八数"></a>什么是无八数</h1><p>简而述之，无八数就是“<strong>123456789</strong>中去掉<strong>8</strong>，得到的<strong>12345679</strong>，就是<strong>无八数</strong></p>
+<a id="more"></a>
+<h2 id="无八数的性质"><a href="#无八数的性质" class="headerlink" title="无八数的性质"></a>无八数的性质</h2><p><img src="/blogimages/none-eight-define.gif" alt=""></p>
+<p><img src="/blogimages/none-eight-define2.gif" alt=""></p>
+<h2 id="无八数为什么会这样"><a href="#无八数为什么会这样" class="headerlink" title="无八数为什么会这样"></a>无八数为什么会这样</h2><p>九位数<strong>111111111</strong>，除以9等于<strong>12345679</strong>!<br><img src="/blogimages/111111111-and-none-eight.gif" alt=""></p>
+<h1 id="更多无八数"><a href="#更多无八数" class="headerlink" title="更多无八数"></a>更多无八数</h1><p>可以通过以下公式推导出十进制无八数类似数<br><img src="/blogimages/none-eight-create.gif" alt=""></p>
+<p><img src="/blogimages/none-eight-use.gif" alt=""></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>无八数</tag>
       </tags>
   </entry>
   <entry>
     <title>python 制作CPU压力测试——圆周率计算</title>
     <url>/2020/04/01/python-countpi/</url>
-    <content><![CDATA[<p>众所周知，反正弦函数asin有以下公式（如在计算器中是弧度制下）：</p>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><p>众所周知，反正弦函数asin有以下公式（如在计算器中是弧度制下）：</p>
 <a id="more"></a>
 
 <p><img src="https://private.codecogs.com/gif.latex?%5Cfrac%7B%5Cpi%7D%7B2%7D%3Darcsin%5Cleft%20%28%201%20%5Cright%20%29" alt="asin(1)=pi/2"></p>
@@ -596,7 +1250,25 @@ k<span class="token operator">=</span><span class="token number">100</span><span
 <p>还是不是很精确啊！</p>
 <p>PS：花了0.002991199493408203秒，虽然看起来很快，但是10000次花了快5分钟呢！</p>
 <p>首发于CSDN博客<a href="https://blog.csdn.net/pythonbilly" target="_blank" rel="noopener">https://blog.csdn.net/pythonbilly</a></p>
-]]></content>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
       <categories>
         <category>计算机</category>
       </categories>
@@ -606,34 +1278,16 @@ k<span class="token operator">=</span><span class="token number">100</span><span
       </tags>
   </entry>
   <entry>
-    <title>无8数的探究</title>
-    <url>/2020/07/04/none-8-number/</url>
-    <content><![CDATA[<h1 id="什么是无八数"><a href="#什么是无八数" class="headerlink" title="什么是无八数"></a>什么是无八数</h1><p>简而述之，无八数就是“<strong>123456789</strong>中去掉<strong>8</strong>，得到的<strong>12345679</strong>，就是<strong>无八数</strong></p>
-<a id="more"></a>
-<h2 id="无八数的性质"><a href="#无八数的性质" class="headerlink" title="无八数的性质"></a>无八数的性质</h2><p><img src="/blogimages/none-eight-define.gif" alt=""></p>
-<p><img src="/blogimages/none-eight-define2.gif" alt=""></p>
-<h2 id="无八数为什么会这样"><a href="#无八数为什么会这样" class="headerlink" title="无八数为什么会这样"></a>无八数为什么会这样</h2><p>九位数<strong>111111111</strong>，除以9等于<strong>12345679</strong>!<br><img src="/blogimages/111111111-and-none-eight.gif" alt=""></p>
-<h1 id="更多无八数"><a href="#更多无八数" class="headerlink" title="更多无八数"></a>更多无八数</h1><p>可以通过以下公式推导出十进制无八数类似数<br><img src="/blogimages/none-eight-create.gif" alt=""></p>
-<p><img src="/blogimages/none-eight-use.gif" alt=""></p>
-]]></content>
-      <categories>
-        <category>数学</category>
-      </categories>
-      <tags>
-        <tag>无八数</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>python简易数据分析</title>
     <url>/2020/07/04/python-simple-data-analysis/</url>
-    <content><![CDATA[<h1 id="python简易数据分析"><a href="#python简易数据分析" class="headerlink" title="python简易数据分析"></a>python简易数据分析</h1><h2 id="1、平均数-Average"><a href="#1、平均数-Average" class="headerlink" title="1、平均数(Average)"></a>1、平均数(Average)</h2><a id="more"></a>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><h1 id="python简易数据分析"><a href="#python简易数据分析" class="headerlink" title="python简易数据分析"></a>python简易数据分析</h1><h2 id="1、平均数-Average"><a href="#1、平均数-Average" class="headerlink" title="1、平均数(Average)"></a>1、平均数(Average)</h2><a id="more"></a>
 <p>话不多说，直接上代码</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">average</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
     sum_ <span class="token operator">=</span> sum<span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 调用内置求和函数</span>
     a_val <span class="token operator">=</span> sum_ <span class="token operator">/</span> len<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
     <span class="token keyword">return</span> a_val</code></pre>
 <h2 id="2、方差-Variance"><a href="#2、方差-Variance" class="headerlink" title="2、方差(Variance)"></a>2、方差(Variance)</h2><h3 id="何谓方差"><a href="#何谓方差" class="headerlink" title="何谓方差?"></a>何谓方差?</h3><blockquote>
-<p>方差是在概率论和统计方差衡量随机变量或一组数据时离散程度的度量。概率论中方差用来度量随机变量和其数学期望（即均值）之间的偏离程度。统计中的方差（样本方差）是每个样本值与全体样本值的平均数之差的平方值的平均数。在许多实际问题中，研究方差即偏离程度有着重要意义。<br>—— <a href="https://baike.baidu.com/item/%E6%96%B9%E5%B7%AE/3108412" target="_blank" rel="noopener">百度百科</a></p>
+<p>方差是在概率论和统计方差衡量随机变量或一组数据时离散程度的度量。概率论中方差用来度量随机变量和其数学期望（即均值）之间的偏离程度。统计中的方差（样本方差）是每个样本值与全体样本值的平均数之差的平方值的平均数。在许多实际问题中，研究方差即偏离程度有着重要意义。<br>—— <a href="https://baike.baidu.com/item%E6%96%B9%E5%B7%AE/3108412" target="_blank" rel="noopener">百度百科</a></p>
 </blockquote>
 <p><img src="/blogimages/variance.svg" alt="方差公式图片"></p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">variance</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -709,7 +1363,25 @@ k<span class="token operator">=</span><span class="token number">100</span><span
     min_ <span class="token operator">=</span> min<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
     <span class="token keyword">return</span> max_ <span class="token operator">-</span> min_
 </code></pre>
-]]></content>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
       <categories>
         <category>计算机</category>
       </categories>
@@ -719,38 +1391,9 @@ k<span class="token operator">=</span><span class="token number">100</span><span
       </tags>
   </entry>
   <entry>
-    <title>Python经验帖——pyinstaller</title>
-    <url>/2020/07/12/pythonexp-pyinstaller/</url>
-    <content><![CDATA[<h1 id="PyInstaller介绍"><a href="#PyInstaller介绍" class="headerlink" title="PyInstaller介绍"></a>PyInstaller介绍</h1><p>PyInstaller是一个简单的python编译程序，可以把<strong>py</strong> 源文件编译成 <strong>exe</strong> 可执行文件（据说还可以变成.app等，但没有亲测过）</p>
-<a id="more"></a>
-<h1 id="PyInstaller安装"><a href="#PyInstaller安装" class="headerlink" title="PyInstaller安装"></a>PyInstaller安装</h1><p>直接运行pip命令即可</p>
-<pre class=" language-powershell"><code class="language-powershell">python <span class="token operator">-</span>m pip install pyinstaller <span class="token operator">/</span><span class="token operator">/</span>Windows<span class="token operator">/</span>MS<span class="token operator">-</span>DOS
-pip install pyinstaller <span class="token operator">/</span><span class="token operator">/</span>Liunx<span class="token operator">/</span>Unix
-pip3 install pyinstaller <span class="token operator">/</span><span class="token operator">/</span>Mac</code></pre>
-<blockquote>
-<p>注：如果下载过慢或超时(Timeout)那么可以选择清华镜像，详细参考 <a href="https://www.cnblogs.com/wqpkita/p/7248525.html" target="_blank" rel="noopener">让python pip使用国内镜像(Cnblog)</a></p>
-</blockquote>
-<h1 id="PyInstaller使用"><a href="#PyInstaller使用" class="headerlink" title="PyInstaller使用"></a>PyInstaller使用</h1><h2 id="写一个python程序"><a href="#写一个python程序" class="headerlink" title="写一个python程序"></a>写一个python程序</h2><p>1.py</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hello World"</span><span class="token punctuation">)</span></code></pre>
-<p><strong>strong text</strong></p>
-<h2 id="尝试编译"><a href="#尝试编译" class="headerlink" title="尝试编译"></a>尝试编译</h2><pre class=" language-powershell"><code class="language-powershell">python <span class="token operator">-</span>m PyInstaller 1<span class="token punctuation">.</span>py</code></pre>
-<p>会生成dist目录，dist目录下有1目录，里面就是所有文件</p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="w"><a href="#w" class="headerlink" title="-w"></a>-w</h3><p>生成GUI程序（无CMD窗口）</p>
-<h3 id="F"><a href="#F" class="headerlink" title="-F"></a>-F</h3><p>生成单个文件</p>
-<h3 id="i-ico"><a href="#i-ico" class="headerlink" title="-i [ico]"></a>-i [ico]</h3><p>加图标（很有用）</p>
-]]></content>
-      <categories>
-        <category>计算机</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>pyinstaller</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>python 猿编程模块（一）ybc_speech</title>
     <url>/2019/10/06/python-ybc-module-ybcspeech/</url>
-    <content><![CDATA[<p>首先先安装模块</p>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><p>首先先安装模块</p>
 <pre class=" language-bash"><code class="language-bash">C:\Python36\python.exe -m pip <span class="token function">install</span> ybc-speech</code></pre>
 <a id="more"></a>
 <p><strong>record</strong>:录制音频</p>
@@ -854,7 +1497,25 @@ __FORMAT <span class="token operator">=</span> <span class="token number">2</spa
 
 </code></pre>
 <p>首发于CSDN博客<a href="https://blog.csdn.net/pythonbilly" target="_blank" rel="noopener">https://blog.csdn.net/pythonbilly</a></p>
-]]></content>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
       <categories>
         <category>计算机</category>
       </categories>
@@ -864,132 +1525,114 @@ __FORMAT <span class="token operator">=</span> <span class="token number">2</spa
       </tags>
   </entry>
   <entry>
-    <title>python实践项目-shop</title>
-    <url>/2019/10/26/python%E5%AE%9E%E8%B7%B5%E9%A1%B9%E7%9B%AE-shop/</url>
-    <content><![CDATA[<h2 id="python实践项目-shop"><a href="#python实践项目-shop" class="headerlink" title="python实践项目-shop"></a>python实践项目-shop</h2><h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><ul>
-<li>文件打开/保存</li>
-<li>cmd应用</li>
-<li>prettytable<a id="more"></a>
-<h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2></li>
+    <title>有关冰雹猜想的那些想法</title>
+    <url>/2020/08/18/ice-strom-guess-something/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><h1 id="1、什么是冰雹猜想"><a href="#1、什么是冰雹猜想" class="headerlink" title="1、什么是冰雹猜想"></a>1、什么是冰雹猜想</h1><blockquote>
+<p>冰雹猜想是指：一个正整数x，如果是奇数就乘以3再加1，如果是偶数就析出偶数因数2ⁿ，这样经过若干个次数，最终回到1。<br><a href="https://baike.baidu.com/item/%E5%86%B0%E9%9B%B9%E7%8C%9C%E6%83%B3/659469" target="_blank" rel="noopener">百度百科</a></p>
+</blockquote>
+<h2 id="1-1-冰雹猜想实例-gt-15"><a href="#1-1-冰雹猜想实例-gt-15" class="headerlink" title="1.1 冰雹猜想实例->15"></a>1.1 冰雹猜想实例-&gt;15</h2><div class="firstTest mermaid">
+       graph TB;
+        15(开始) --&gt; 15*3+1=46
+    15*3+1=46--&gt;46/2=23;
+    46/2=23--&gt;23*3+1=70;
+    23*3+1=70--&gt;70/2=35;
+    70/2=35--&gt;35*3+1=106; 
+    35*3+1=106--&gt;106/2=53
+    106/2=53--&gt;53*3+1=160
+    53*3+1=160--&gt;160/2=80
+    160/2=80 --&gt; 80/2=40
+    80/2=40 --&gt; 40/2=20
+    40/2=20 --&gt;20/2=10
+    10/2=5 --&gt; 5*3+1=16
+    5*3+1=16 --&gt; 16/2=8
+    16/2=8--&gt;8/2=4
+    8/2=4--&gt;4/2=2
+        4/2=2--&gt;2/2=1
+2/2=1 --&gt; 1(完成)
+    </div>
+<!--
+![点击下方链接查看](/blogimages/ice-strom-15.png)
+[点击链接-查看高清图片（外链）](https://flowchart.airmore.cn/doc/b74c775d37992b4dbe68987c0070cbe7)-->
+
+<h1 id="2-关于冰雹反推树（Collatz-Conjecture-Reversed-Tree"><a href="#2-关于冰雹反推树（Collatz-Conjecture-Reversed-Tree" class="headerlink" title="2.关于冰雹反推树（Collatz Conjecture　Reversed Tree)"></a>2.关于冰雹反推树（Collatz Conjecture　Reversed Tree)</h1><p><strong>冰雹反推树</strong>是我提出来的<strong>一项方法</strong>，有<strong>帮助证明</strong>的作用。</p>
+<h2 id="2-1-过程"><a href="#2-1-过程" class="headerlink" title="2.1 过程"></a>2.1 过程</h2><p><img src="/blogimages/ice-strom-tree-64-30.png" alt="冰雹反推树"></p>
+<ul>
+<li>第一个节点为1</li>
+<li>子节点（左）： 父节点*2</li>
+<li>子节点（右）： (父节点-1)/3 (如果为小数就不写)</li>
 </ul>
-<p>使用CMD程序，实现商店管理<br>python3+pycharm</p>
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><strong>getPicke.py</strong> 初始化PICKLE</p>
-<pre class=" language-python"><code class="language-python">data<span class="token operator">=</span><span class="token string">"[[\"6953787355327\",\"晨光24色水彩笔\",\"25\"]]"</span>
-obj<span class="token operator">=</span>open<span class="token punctuation">(</span><span class="token string">"libray/shop.pkl"</span><span class="token punctuation">,</span><span class="token string">"w"</span><span class="token punctuation">)</span>
-obj<span class="token punctuation">.</span>write<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
-obj<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<p><strong>pklAdmin.py</strong> 管理</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Shop1.0 Pkl File Admin Program"</span><span class="token punctuation">)</span>
-<span class="token keyword">import</span> prettytable
-<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-    cmd<span class="token operator">=</span>input<span class="token punctuation">(</span><span class="token string">">>>"</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> cmd <span class="token operator">==</span> <span class="token string">"quit"</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"exiting..."</span><span class="token punctuation">)</span>
-        <span class="token keyword">break</span>
-    <span class="token keyword">elif</span> cmd <span class="token operator">==</span> <span class="token string">"exit"</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Do you want to exit now?"</span><span class="token punctuation">)</span>
-        option<span class="token operator">=</span>input<span class="token punctuation">(</span><span class="token string">"(y/&lt;Other>)"</span><span class="token punctuation">)</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>option <span class="token operator">==</span> <span class="token string">"y"</span> <span class="token operator">or</span> option <span class="token operator">==</span> <span class="token string">"Y"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"exiting..."</span><span class="token punctuation">)</span>
-            <span class="token keyword">break</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Canceled to exit"</span><span class="token punctuation">)</span>
-    <span class="token keyword">elif</span> cmd <span class="token operator">==</span> <span class="token string">"read"</span> <span class="token operator">or</span> cmd <span class="token operator">==</span> <span class="token string">"Read"</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"You Want To Read Commodities."</span><span class="token punctuation">)</span>
-        tobj<span class="token operator">=</span>prettytable<span class="token punctuation">.</span>PrettyTable<span class="token punctuation">(</span><span class="token punctuation">[</span>
-            <span class="token string">"Bar code"</span><span class="token punctuation">,</span>
-            <span class="token string">"Trade name"</span><span class="token punctuation">,</span>
-            <span class="token string">"Price(RMB)"</span>
-        <span class="token punctuation">]</span><span class="token punctuation">)</span>
-        o<span class="token operator">=</span>eval<span class="token punctuation">(</span>open<span class="token punctuation">(</span><span class="token string">"libray/shop.pkl"</span><span class="token punctuation">,</span><span class="token string">"r"</span><span class="token punctuation">,</span>encoding<span class="token operator">=</span><span class="token string">"gbk"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> o<span class="token punctuation">:</span>
-            tobj<span class="token punctuation">.</span>add_row<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>tobj<span class="token punctuation">)</span>
-    <span class="token keyword">elif</span> cmd <span class="token operator">==</span> <span class="token string">"add"</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"You Want To Add a Commodity"</span><span class="token punctuation">)</span>
-        s<span class="token operator">=</span>input<span class="token punctuation">(</span><span class="token string">"Input Commodity Name..."</span><span class="token punctuation">)</span>
-        p<span class="token operator">=</span>input<span class="token punctuation">(</span><span class="token string">"Input Commodity Price..."</span><span class="token punctuation">)</span>
-        b <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"Input Commodity Bar Code..."</span><span class="token punctuation">)</span>
-        o <span class="token operator">=</span> eval<span class="token punctuation">(</span>open<span class="token punctuation">(</span><span class="token string">"libray/shop.pkl"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">,</span>encoding<span class="token operator">=</span><span class="token string">"gbk"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        o<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">[</span>b<span class="token punctuation">,</span>s<span class="token punctuation">,</span>p<span class="token punctuation">]</span><span class="token punctuation">)</span>
-        obj<span class="token operator">=</span>open<span class="token punctuation">(</span><span class="token string">"libray/shop.pkl"</span><span class="token punctuation">,</span><span class="token string">"w"</span><span class="token punctuation">)</span>
-        obj<span class="token punctuation">.</span>write<span class="token punctuation">(</span>str<span class="token punctuation">(</span>o<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        obj<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Now,Add Right..."</span><span class="token punctuation">)</span>
-        tobj<span class="token operator">=</span>prettytable<span class="token punctuation">.</span>PrettyTable<span class="token punctuation">(</span><span class="token punctuation">[</span>
-            <span class="token string">"Bar code"</span><span class="token punctuation">,</span>
-            <span class="token string">"Trade name"</span><span class="token punctuation">,</span>
-            <span class="token string">"Price(RMB)"</span>
-        <span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> o<span class="token punctuation">:</span>
-            tobj<span class="token punctuation">.</span>add_row<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>tobj<span class="token punctuation">)</span>
-    <span class="token keyword">elif</span> cmd <span class="token operator">==</span> <span class="token string">"help"</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"PklAdmin Document"</span><span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token triple-quoted-string string">'''
-        add:Add items to program directory.
-        read/Read:Displays all saved items.
-        exit:Quit program(can cancel).
-        quit:Quit program(can't cancel)
-        del/delete/remove:Remove items to program directory.
-        help:Displays this.
-        '''</span><span class="token punctuation">)</span>
-    <span class="token keyword">elif</span> cmd <span class="token operator">==</span> <span class="token string">"del"</span> <span class="token operator">or</span> cmd <span class="token operator">==</span> <span class="token string">"delete"</span> <span class="token operator">or</span> cmd <span class="token operator">==</span> <span class="token string">"remove"</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"You want to delete a commodity"</span><span class="token punctuation">)</span>
-        b<span class="token operator">=</span>input<span class="token punctuation">(</span><span class="token string">"Input Commodity Bar Code..."</span><span class="token punctuation">)</span>
-        o <span class="token operator">=</span> eval<span class="token punctuation">(</span>open<span class="token punctuation">(</span><span class="token string">"libray/shop.pkl"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">"gbk"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> o<span class="token punctuation">:</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Find!"</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span>
-                o<span class="token punctuation">.</span>remove<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Now,Remove Right..."</span><span class="token punctuation">)</span>
-        tobj <span class="token operator">=</span> prettytable<span class="token punctuation">.</span>PrettyTable<span class="token punctuation">(</span><span class="token punctuation">[</span>
-            <span class="token string">"Bar code"</span><span class="token punctuation">,</span>
-            <span class="token string">"Trade name"</span><span class="token punctuation">,</span>
-            <span class="token string">"Price(RMB)"</span>
-        <span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> o<span class="token punctuation">:</span>
-            tobj<span class="token punctuation">.</span>add_row<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>tobj<span class="token punctuation">)</span>
-        obj <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">"libray/shop.pkl"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span>
-        obj<span class="token punctuation">.</span>write<span class="token punctuation">(</span>str<span class="token punctuation">(</span>o<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        obj<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-
-    <span class="token keyword">else</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"No such command!Please verify the input."</span><span class="token punctuation">)</span>
-
-</code></pre>
-<p><strong>main1.py</strong> 主程序</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"SHOP 1.0 COMMAND PROGRAM"</span><span class="token punctuation">)</span>
-<span class="token keyword">def</span> <span class="token function">get</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    o <span class="token operator">=</span> eval<span class="token punctuation">(</span>open<span class="token punctuation">(</span><span class="token string">"libray/shop.pkl"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">"gbk"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> o<span class="token punctuation">:</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> i
-    <span class="token keyword">return</span> <span class="token boolean">False</span>
-<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"input item times..."</span><span class="token punctuation">)</span>
-    t<span class="token operator">=</span>input<span class="token punctuation">(</span><span class="token string">"..."</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>t <span class="token operator">==</span> None <span class="token operator">or</span> t <span class="token operator">==</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">break</span>
-    t<span class="token operator">=</span>int<span class="token punctuation">(</span>t<span class="token punctuation">)</span>
-    sum_<span class="token operator">=</span><span class="token number">0</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        p<span class="token operator">=</span>get<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">"Bar code..."</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>p <span class="token operator">==</span> <span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Don't have this item"</span><span class="token punctuation">)</span>
-            <span class="token keyword">continue</span>
-        sum_<span class="token operator">=</span> sum_ <span class="token operator">+</span> int<span class="token punctuation">(</span>p<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>p<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">"RMB"</span><span class="token operator">+</span>p<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Sum is %d"</span><span class="token operator">%</span>sum_<span class="token punctuation">)</span></code></pre>
-<p>详情请访问<a href="https://gitee.com/pybilly/shop" target="_blank" rel="noopener">我的码云仓库</a><br>下个项目再见，See you</p>
-]]></content>
+<p>$$<br>firstparent = 1<br>$$<br>$$<br>subleft = parent \times 2<br>$$<br>$$<br>subright = \frac {(parent - 1)} {3}<br>$$</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>角谷猜想</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python经验帖——pyinstaller</title>
+    <url>/2020/07/12/pythonexp-pyinstaller/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><h1 id="PyInstaller介绍"><a href="#PyInstaller介绍" class="headerlink" title="PyInstaller介绍"></a>PyInstaller介绍</h1><p>PyInstaller是一个简单的python编译程序，可以把<strong>py</strong> 源文件编译成 <strong>exe</strong> 可执行文件（据说还可以变成.app等，但没有亲测过）</p>
+<a id="more"></a>
+<h1 id="PyInstaller安装"><a href="#PyInstaller安装" class="headerlink" title="PyInstaller安装"></a>PyInstaller安装</h1><p>直接运行pip命令即可</p>
+<pre class=" language-powershell"><code class="language-powershell">python <span class="token operator">-</span>m pip install pyinstaller <span class="token operator">/</span><span class="token operator">/</span>Windows<span class="token operator">/</span>MS<span class="token operator">-</span>DOS
+pip install pyinstaller <span class="token operator">/</span><span class="token operator">/</span>Liunx<span class="token operator">/</span>Unix
+pip3 install pyinstaller <span class="token operator">/</span><span class="token operator">/</span>Mac</code></pre>
+<blockquote>
+<p>注：如果下载过慢或超时(Timeout)那么可以选择清华镜像，详细参考 <a href="https://www.cnblogs.com/wqpkita/p/7248525.html" target="_blank" rel="noopener">让python pip使用国内镜像(Cnblog)</a></p>
+</blockquote>
+<h1 id="PyInstaller使用"><a href="#PyInstaller使用" class="headerlink" title="PyInstaller使用"></a>PyInstaller使用</h1><h2 id="写一个python程序"><a href="#写一个python程序" class="headerlink" title="写一个python程序"></a>写一个python程序</h2><p>1.py</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hello World"</span><span class="token punctuation">)</span></code></pre>
+<p><strong>strong text</strong></p>
+<h2 id="尝试编译"><a href="#尝试编译" class="headerlink" title="尝试编译"></a>尝试编译</h2><pre class=" language-powershell"><code class="language-powershell">python <span class="token operator">-</span>m PyInstaller 1<span class="token punctuation">.</span>py</code></pre>
+<p>会生成dist目录，dist目录下有1目录，里面就是所有文件</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="w"><a href="#w" class="headerlink" title="-w"></a>-w</h3><p>生成GUI程序（无CMD窗口）</p>
+<h3 id="F"><a href="#F" class="headerlink" title="-F"></a>-F</h3><p>生成单个文件</p>
+<h3 id="i-ico"><a href="#i-ico" class="headerlink" title="-i [ico]"></a>-i [ico]</h3><p>加图标（很有用）</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
       <categories>
         <category>计算机</category>
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>pyinstaller</tag>
       </tags>
   </entry>
 </search>
